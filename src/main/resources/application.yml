@@ -1,0 +1,38 @@
+
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: 192.168.128.128:9092
+      # 配置消费者消息offset是否自动重置(消费者重连会能够接收最开始的消息)
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+    producer:
+      bootstrap-servers: 192.168.128.128:9092
+      # 发送的对象信息变为json格式
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    listener:
+      ack-mode: manual
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123456
+    username: root
+    url: jdbc:mysql://localhost:3306/distrube_transcation?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+  redis:
+    host: 192.168.128.128
+    port: 6379
+kafka:
+  topic:
+    reply: reply-topic
+    send: send-topic
+
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+email:
+  address: happy_scs@qq.com

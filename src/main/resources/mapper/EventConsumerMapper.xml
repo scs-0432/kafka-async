@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scs.kafakasync.com.scs.mapper.EvenConusmertMapper">
+
+
+    <insert id="insertEvent">
+        insert into eventconsumer(msgId, boday, topic)
+        values (#{msgID}, #{body}, #{topic});
+    </insert>
+</mapper>
